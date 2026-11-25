@@ -1,0 +1,367 @@
+{
+  "version": 5,
+  "stations": [
+    {
+      "id": "FR-001",
+      "name": "Central Park",
+      "location": "Bucharest, Romania",
+      "status": "Online",
+      "bins": {
+        "plastic": 35,
+        "paper": 58,
+        "metal": 22
+      },
+      "counts": {
+        "plastic": 642,
+        "paper": 385,
+        "metal": 257
+      },
+      "mapX": 0.25,
+      "mapY": 0.34,
+      "latitude": 44.4268,
+      "longitude": 26.1025,
+      "dailyRates": {
+        "plastic": 5.0,
+        "paper": 3.5,
+        "metal": 2.5
+      }
+    },
+    {
+      "id": "FR-002",
+      "name": "University Campus",
+      "location": "Cluj-Napoca, Romania",
+      "status": "Online",
+      "bins": {
+        "plastic": 0,
+        "paper": 43,
+        "metal": 18
+      },
+      "counts": {
+        "plastic": 352,
+        "paper": 310,
+        "metal": 190
+      },
+      "mapX": 0.7028,
+      "mapY": 0.2367,
+      "latitude": 46.7712,
+      "longitude": 23.6236,
+      "dailyRates": {
+        "plastic": 5.0,
+        "paper": 3.5,
+        "metal": 2.5
+      }
+    },
+    {
+      "id": "FR-003",
+      "name": "Green Residence",
+      "location": "Timișoara, Romania",
+      "status": "Offline",
+      "bins": {
+        "plastic": 0,
+        "paper": 65,
+        "metal": 0
+      },
+      "counts": {
+        "plastic": 200,
+        "paper": 230,
+        "metal": 140
+      },
+      "mapX": 0.5525,
+      "mapY": 0.7633,
+      "latitude": 45.7489,
+      "longitude": 21.2087,
+      "dailyRates": {
+        "plastic": 5.0,
+        "paper": 3.5,
+        "metal": 2.5
+      }
+    }
+  ],
+  "selectedStationId": "FR-001",
+  "nextStationNumber": 4,
+  "history": [
+    {
+      "stationId": "FR-002",
+      "object": "Plastic Bottle",
+      "material": "Plastic",
+      "confidence": 97.3,
+      "status": "Sorted",
+      "time": "23 nov · 20:54",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": false
+    },
+    {
+      "stationId": "FR-002",
+      "object": "Plastic Bottle",
+      "material": "Plastic",
+      "confidence": 97.3,
+      "status": "Sorted",
+      "time": "23 nov · 20:54",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": false
+    },
+    {
+      "stationId": "FR-001",
+      "object": "Plastic Bottle",
+      "material": "Plastic",
+      "confidence": 97.3,
+      "status": "Sorted",
+      "time": "23 nov · 20:45",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": true
+    },
+    {
+      "stationId": "FR-002",
+      "object": "Paper / Cardboard",
+      "material": "Paper",
+      "confidence": 98.1,
+      "status": "Sorted",
+      "time": "23 nov · 20:38",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": true
+    },
+    {
+      "stationId": "FR-001",
+      "object": "Aluminum Can",
+      "material": "Metal",
+      "confidence": 96.5,
+      "status": "Sorted",
+      "time": "23 nov · 20:31",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": true
+    },
+    {
+      "stationId": "FR-002",
+      "object": "Plastic Bottle",
+      "material": "Plastic",
+      "confidence": 97.3,
+      "status": "Sorted",
+      "time": "23 nov · 20:24",
+      "createdAt": "2026-11-23T21:25:31+02:00",
+      "demo": true
+    }
+  ],
+  "collections": [
+    {
+      "id": "COL-0003",
+      "stationId": "FR-003",
+      "material": "metal",
+      "status": "Completed",
+      "note": "",
+      "createdAt": "2026-11-23T22:47:15+02:00",
+      "updatedAt": "2026-11-23T22:47:46+02:00",
+      "completedAt": "2026-11-23T22:47:46+02:00",
+      "scheduledFor": "2026-11-24",
+      "scheduledSlot": "Afternoon",
+      "demo": false
+    },
+    {
+      "id": "COL-0002",
+      "stationId": "FR-001",
+      "material": "plastic",
+      "status": "Scheduled",
+      "note": "",
+      "createdAt": "2026-11-23T22:46:32+02:00",
+      "updatedAt": "2026-11-23T22:47:52+02:00",
+      "completedAt": "",
+      "scheduledFor": "2026-11-30",
+      "scheduledSlot": "Afternoon",
+      "demo": false
+    },
+    {
+      "id": "COL-0001",
+      "stationId": "FR-002",
+      "material": "plastic",
+      "status": "Completed",
+      "note": "",
+      "createdAt": "2026-11-23T21:27:23+02:00",
+      "updatedAt": "2026-11-23T21:27:30+02:00",
+      "completedAt": "2026-11-23T21:27:30+02:00",
+      "scheduledFor": "",
+      "scheduledSlot": "",
+      "demo": false
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TKT-0002",
+      "stationId": "FR-002",
+      "title": "fas",
+      "category": "Sensor",
+      "priority": "High",
+      "status": "Resolved",
+      "description": "sfasfasfa",
+      "createdAt": "2026-11-23T21:26:41+02:00",
+      "updatedAt": "2026-11-23T21:27:00+02:00",
+      "demo": false
+    },
+    {
+      "id": "TKT-0001",
+      "stationId": "FR-002",
+      "title": "problema senzor",
+      "category": "Sensor",
+      "priority": "High",
+      "status": "Resolved",
+      "description": "nu mai merg ledurile",
+      "createdAt": "2026-11-23T21:26:13+02:00",
+      "updatedAt": "2026-11-23T21:26:22+02:00",
+      "demo": false
+    }
+  ],
+  "activity": [
+    {
+      "id": "EVT-0018",
+      "type": "Collection",
+      "stationId": "FR-001",
+      "title": "Collection scheduled",
+      "details": "COL-0002 · 2026-11-30 · Afternoon",
+      "createdAt": "2026-11-23T22:47:52+02:00"
+    },
+    {
+      "id": "EVT-0017",
+      "type": "Collection",
+      "stationId": "FR-003",
+      "title": "Collection completed",
+      "details": "Metal · COL-0003",
+      "createdAt": "2026-11-23T22:47:46+02:00"
+    },
+    {
+      "id": "EVT-0016",
+      "type": "Collection",
+      "stationId": "FR-003",
+      "title": "Collection scheduled",
+      "details": "COL-0003 · 2026-11-24 · Afternoon",
+      "createdAt": "2026-11-23T22:47:15+02:00"
+    },
+    {
+      "id": "EVT-0015",
+      "type": "Collection",
+      "stationId": "FR-003",
+      "title": "Collection requested",
+      "details": "Metal · COL-0003",
+      "createdAt": "2026-11-23T22:47:15+02:00"
+    },
+    {
+      "id": "EVT-0014",
+      "type": "Collection",
+      "stationId": "FR-001",
+      "title": "Collection scheduled",
+      "details": "COL-0002 · 2026-11-23 · Afternoon",
+      "createdAt": "2026-11-23T22:47:00+02:00"
+    },
+    {
+      "id": "EVT-0013",
+      "type": "Collection",
+      "stationId": "FR-001",
+      "title": "Collection scheduled",
+      "details": "COL-0002 · 2026-11-23 · Morning",
+      "createdAt": "2026-11-23T22:46:32+02:00"
+    },
+    {
+      "id": "EVT-0012",
+      "type": "Collection",
+      "stationId": "FR-001",
+      "title": "Collection requested",
+      "details": "Plastic · COL-0002",
+      "createdAt": "2026-11-23T22:46:32+02:00"
+    },
+    {
+      "id": "EVT-0011",
+      "type": "System",
+      "stationId": "",
+      "title": "CSV report exported",
+      "details": "Scope: all · 7d",
+      "createdAt": "2026-11-23T21:50:55+02:00"
+    },
+    {
+      "id": "EVT-0010",
+      "type": "Station",
+      "stationId": "FR-003",
+      "title": "Station status changed",
+      "details": "Offline",
+      "createdAt": "2026-11-23T21:49:19+02:00"
+    },
+    {
+      "id": "EVT-0009",
+      "type": "Collection",
+      "stationId": "FR-002",
+      "title": "Collection completed",
+      "details": "Plastic · COL-0001",
+      "createdAt": "2026-11-23T21:27:30+02:00"
+    },
+    {
+      "id": "EVT-0008",
+      "type": "Collection",
+      "stationId": "FR-002",
+      "title": "Collection scheduled",
+      "details": "Plastic · COL-0001",
+      "createdAt": "2026-11-23T21:27:25+02:00"
+    },
+    {
+      "id": "EVT-0007",
+      "type": "Collection",
+      "stationId": "FR-002",
+      "title": "Collection requested",
+      "details": "Plastic · COL-0001",
+      "createdAt": "2026-11-23T21:27:23+02:00"
+    },
+    {
+      "id": "EVT-0006",
+      "type": "System",
+      "stationId": "",
+      "title": "Alert acknowledged",
+      "details": "fill:FR-002:plastic",
+      "createdAt": "2026-11-23T21:27:16+02:00"
+    },
+    {
+      "id": "EVT-0005",
+      "type": "Maintenance",
+      "stationId": "FR-002",
+      "title": "Ticket resolved",
+      "details": "TKT-0002 · fas",
+      "createdAt": "2026-11-23T21:27:00+02:00"
+    },
+    {
+      "id": "EVT-0004",
+      "type": "Maintenance",
+      "stationId": "FR-002",
+      "title": "Service ticket created",
+      "details": "TKT-0002 · fas",
+      "createdAt": "2026-11-23T21:26:41+02:00"
+    },
+    {
+      "id": "EVT-0003",
+      "type": "Maintenance",
+      "stationId": "FR-002",
+      "title": "Ticket resolved",
+      "details": "TKT-0001 · problema senzor",
+      "createdAt": "2026-11-23T21:26:22+02:00"
+    },
+    {
+      "id": "EVT-0002",
+      "type": "Maintenance",
+      "stationId": "FR-002",
+      "title": "Ticket in progress",
+      "details": "TKT-0001 · problema senzor",
+      "createdAt": "2026-11-23T21:26:19+02:00"
+    },
+    {
+      "id": "EVT-0001",
+      "type": "Maintenance",
+      "stationId": "FR-002",
+      "title": "Service ticket created",
+      "details": "TKT-0001 · problema senzor",
+      "createdAt": "2026-11-23T21:26:13+02:00"
+    }
+  ],
+  "acknowledgedAlerts": [],
+  "nextCollectionNumber": 4,
+  "nextTicketNumber": 3,
+  "nextEventNumber": 19,
+  "settings": {
+    "scanDuration": 2000,
+    "confidenceThreshold": 95
+  },
+  "lastScenario": "Legacy Data",
+  "scenarioAppliedAt": ""
+}

@@ -1,0 +1,19 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local application state
+state.json
+data/local/
+
+# Generated files
+*.log
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
