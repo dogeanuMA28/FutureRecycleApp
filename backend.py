@@ -1,3 +1,8 @@
+"""FutureRecycle demo engine: multi-station operations, alerts, reports, local JSON.
+
+This is an offline UNIVERSITY SIMULATION. No real AI, sensor, courier,
+notification, collection crew, or payment system is connected.
+"""
 from __future__ import annotations
 
 import copy
@@ -302,37 +307,25 @@ def normalize_state(raw):
             "lastScenario": str(raw.get("lastScenario", "Legacy Data"))[:40],
             "scenarioAppliedAt": str(raw.get("scenarioAppliedAt", ""))[:40]}
 
+
 def load_demo_seed():
-    """Load the shared demonstration data from the repository."""
+    """Versioned, fictional snapshot committed with the source code.
 
-    seed_path = (
-        Path(__file__).resolve().parent
-        / "data"
-        / "demo_seed.json"
-    )
-
+    This is used only when there is no usable personal save or when the user
+    explicitly requests Restore Demo. Never modify the repository copy.
+    """
+    seed = Path(__file__).resolve().parent / "data" / "demo_seed.json"
     try:
-        with seed_path.open("r", encoding="utf-8") as file:
-            raw = json.load(file)
-
-        if not isinstance(raw, dict):
-            raise ValueError("Demo data must be a JSON object")
-
-        if raw.get("version") not in (2, 3, 4, VERSION):
-            raise ValueError("Unsupported demo data version")
-
+        raw = json.loads(seed.read_text(encoding="utf-8"))
+        if not isinstance(raw, dict) or raw.get("version") not in (2, 3, 4, VERSION):
+            raise ValueError("unsupported demo seed version")
         if not isinstance(raw.get("stations"), list) or not raw["stations"]:
-            raise ValueError("Demo data must contain stations")
-
-        print(f"Loaded shared demo data from: {seed_path}")
-
+            raise ValueError("demo seed contains no stations")
         return normalize_state(raw)
-
-    except (OSError, ValueError, TypeError) as error:
-        print(f"Could not load demo seed: {error}")
-        print("Using built-in demonstration data instead.")
-
+    except (OSError, ValueError, TypeError) as exc:
+        print(f"Demo seed unavailable ({exc}); using built-in sample stations")
         return sample_state()
+
 
 def classify_filename(filename):
     """Keywords in the filename ONLY, never image pixel recognition."""
@@ -370,11 +363,10 @@ class Backend(QObject):
         self.data_file = Path(data_file) if data_file else self.data_dir / "state.json"
         self.data_dir = self.data_file.parent
         self._state = self._load()
-        # Create a personal local copy on the first launch.
+        # First launch: personal, independent copy of the GitHub demo snapshot.
         if not self.data_file.exists():
             self._save()
         print(f"FutureRecycle state file: {self.data_file}")
-
 
     @Property("QVariantMap", notify=stateChanged)
     def state(self):
@@ -384,20 +376,11 @@ class Backend(QObject):
         return result
 
     def _load(self):
-        # 1. Always prefer the user's existing saved data.
         if self.data_file.exists():
             try:
-                saved = json.loads(
-                    self.data_file.read_text(encoding="utf-8")
-                )
-
-                return normalize_state(saved)
-
-            except (OSError, ValueError, TypeError) as error:
-                print("Unable to load local state:", error)
-
-        # 2. If there is no usable local save,
-        #    initialize the app from the shared demo dataset.
+                return normalize_state(json.loads(self.data_file.read_text(encoding="utf-8")))
+            except (OSError, ValueError, TypeError) as exc:
+                print("Unable to load state:", exc)
         return load_demo_seed()
 
     def _save(self):
@@ -918,17 +901,7 @@ class Backend(QObject):
 
     @Slot()
     def restoreDemo(self):
-        # Preserve the user's preferred simulation settings.
-        settings = copy.deepcopy(
-            self._state["settings"]
-        )
-
-        # Restore the dataset committed to GitHub.
+        settings = copy.deepcopy(self._state["settings"])
         self._state = load_demo_seed()
-
         self._state["settings"] = settings
-
-        self._commit(
-            "Shared demonstration dataset restored."
-        )
-
+        self._commit("Shared presentation demo dataset restored.")

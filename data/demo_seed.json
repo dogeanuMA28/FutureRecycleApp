@@ -21,9 +21,9 @@
       "latitude": 44.4268,
       "longitude": 26.1025,
       "dailyRates": {
-        "plastic": 5.0,
+        "plastic": 6.5,
         "paper": 3.5,
-        "metal": 2.5
+        "metal": 2.1
       }
     },
     {
@@ -32,48 +32,48 @@
       "location": "Cluj-Napoca, Romania",
       "status": "Online",
       "bins": {
-        "plastic": 0,
+        "plastic": 72,
         "paper": 43,
         "metal": 18
       },
       "counts": {
-        "plastic": 352,
+        "plastic": 350,
         "paper": 310,
         "metal": 190
       },
-      "mapX": 0.7028,
-      "mapY": 0.2367,
+      "mapX": 0.69,
+      "mapY": 0.27,
       "latitude": 46.7712,
       "longitude": 23.6236,
       "dailyRates": {
-        "plastic": 5.0,
-        "paper": 3.5,
-        "metal": 2.5
+        "plastic": 8.0,
+        "paper": 5.0,
+        "metal": 2.7
       }
     },
     {
       "id": "FR-003",
       "name": "Green Residence",
       "location": "Timișoara, Romania",
-      "status": "Offline",
+      "status": "Maintenance",
       "bins": {
-        "plastic": 0,
+        "plastic": 88,
         "paper": 65,
-        "metal": 0
+        "metal": 41
       },
       "counts": {
         "plastic": 200,
         "paper": 230,
         "metal": 140
       },
-      "mapX": 0.5525,
-      "mapY": 0.7633,
+      "mapX": 0.57,
+      "mapY": 0.72,
       "latitude": 45.7489,
       "longitude": 21.2087,
       "dailyRates": {
-        "plastic": 5.0,
-        "paper": 3.5,
-        "metal": 2.5
+        "plastic": 4.0,
+        "paper": 3.2,
+        "metal": 2.0
       }
     }
   ],
@@ -81,33 +81,13 @@
   "nextStationNumber": 4,
   "history": [
     {
-      "stationId": "FR-002",
-      "object": "Plastic Bottle",
-      "material": "Plastic",
-      "confidence": 97.3,
-      "status": "Sorted",
-      "time": "23 nov · 20:54",
-      "createdAt": "2026-11-23T21:25:31+02:00",
-      "demo": false
-    },
-    {
-      "stationId": "FR-002",
-      "object": "Plastic Bottle",
-      "material": "Plastic",
-      "confidence": 97.3,
-      "status": "Sorted",
-      "time": "23 nov · 20:54",
-      "createdAt": "2026-11-23T21:25:31+02:00",
-      "demo": false
-    },
-    {
       "stationId": "FR-001",
       "object": "Plastic Bottle",
       "material": "Plastic",
       "confidence": 97.3,
       "status": "Sorted",
-      "time": "23 nov · 20:45",
-      "createdAt": "2026-11-23T21:25:31+02:00",
+      "time": "26 Nov · 16:54",
+      "createdAt": "2026-11-26T16:54:54+00:00",
       "demo": true
     },
     {
@@ -116,8 +96,8 @@
       "material": "Paper",
       "confidence": 98.1,
       "status": "Sorted",
-      "time": "23 nov · 20:38",
-      "createdAt": "2026-11-23T21:25:31+02:00",
+      "time": "26 Nov · 16:47",
+      "createdAt": "2026-11-26T16:47:54+00:00",
       "demo": true
     },
     {
@@ -126,8 +106,8 @@
       "material": "Metal",
       "confidence": 96.5,
       "status": "Sorted",
-      "time": "23 nov · 20:31",
-      "createdAt": "2026-11-23T21:25:31+02:00",
+      "time": "26 Nov · 16:40",
+      "createdAt": "2026-11-26T16:40:54+00:00",
       "demo": true
     },
     {
@@ -136,232 +116,115 @@
       "material": "Plastic",
       "confidence": 97.3,
       "status": "Sorted",
-      "time": "23 nov · 20:24",
-      "createdAt": "2026-11-23T21:25:31+02:00",
+      "time": "26 Nov · 16:33",
+      "createdAt": "2026-11-26T16:33:54+00:00",
       "demo": true
     }
   ],
   "collections": [
     {
-      "id": "COL-0003",
-      "stationId": "FR-003",
-      "material": "metal",
-      "status": "Completed",
-      "note": "",
-      "createdAt": "2026-11-23T22:47:15+02:00",
-      "updatedAt": "2026-11-23T22:47:46+02:00",
-      "completedAt": "2026-11-23T22:47:46+02:00",
-      "scheduledFor": "2026-11-24",
-      "scheduledSlot": "Afternoon",
-      "demo": false
+      "id": "COL-0001",
+      "stationId": "FR-002",
+      "material": "paper",
+      "status": "Requested",
+      "note": "Routine campus pickup request",
+      "createdAt": "2026-11-26T16:25:54+00:00",
+      "updatedAt": "2026-11-26T16:25:54+00:00",
+      "completedAt": "",
+      "scheduledFor": "",
+      "scheduledSlot": "",
+      "demo": true
     },
     {
       "id": "COL-0002",
       "stationId": "FR-001",
-      "material": "plastic",
-      "status": "Scheduled",
-      "note": "",
-      "createdAt": "2026-11-23T22:46:32+02:00",
-      "updatedAt": "2026-11-23T22:47:52+02:00",
-      "completedAt": "",
-      "scheduledFor": "2026-11-30",
-      "scheduledSlot": "Afternoon",
-      "demo": false
-    },
-    {
-      "id": "COL-0001",
-      "stationId": "FR-002",
-      "material": "plastic",
+      "material": "metal",
       "status": "Completed",
-      "note": "",
-      "createdAt": "2026-11-23T21:27:23+02:00",
-      "updatedAt": "2026-11-23T21:27:30+02:00",
-      "completedAt": "2026-11-23T21:27:30+02:00",
-      "scheduledFor": "",
-      "scheduledSlot": "",
-      "demo": false
+      "note": "Routine pickup demonstration",
+      "createdAt": "2026-11-22T16:57:54+00:00",
+      "updatedAt": "2026-11-23T16:57:54+00:00",
+      "completedAt": "2026-11-23T16:57:54+00:00",
+      "scheduledFor": "2026-11-23",
+      "scheduledSlot": "Morning",
+      "demo": true
     }
   ],
   "tickets": [
     {
-      "id": "TKT-0002",
-      "stationId": "FR-002",
-      "title": "fas",
-      "category": "Sensor",
+      "id": "TKT-0001",
+      "stationId": "FR-003",
+      "title": "Sorting mechanism inspection",
+      "category": "Hardware",
       "priority": "High",
-      "status": "Resolved",
-      "description": "sfasfasfa",
-      "createdAt": "2026-11-23T21:26:41+02:00",
-      "updatedAt": "2026-11-23T21:27:00+02:00",
-      "demo": false
+      "status": "In Progress",
+      "description": "Example service ticket for the demo station.",
+      "createdAt": "2026-11-26T15:27:54+00:00",
+      "updatedAt": "2026-11-26T16:07:54+00:00",
+      "demo": true
     },
     {
-      "id": "TKT-0001",
+      "id": "TKT-0002",
       "stationId": "FR-002",
-      "title": "problema senzor",
+      "title": "Sensor calibration",
       "category": "Sensor",
-      "priority": "High",
+      "priority": "Low",
       "status": "Resolved",
-      "description": "nu mai merg ledurile",
-      "createdAt": "2026-11-23T21:26:13+02:00",
-      "updatedAt": "2026-11-23T21:26:22+02:00",
-      "demo": false
+      "description": "Demonstration of a completed service request.",
+      "createdAt": "2026-11-21T16:57:54+00:00",
+      "updatedAt": "2026-11-22T16:57:54+00:00",
+      "demo": true
     }
   ],
   "activity": [
     {
-      "id": "EVT-0018",
-      "type": "Collection",
+      "id": "EVT-0003",
+      "type": "Scan",
       "stationId": "FR-001",
-      "title": "Collection scheduled",
-      "details": "COL-0002 · 2026-11-30 · Afternoon",
-      "createdAt": "2026-11-23T22:47:52+02:00"
-    },
-    {
-      "id": "EVT-0017",
-      "type": "Collection",
-      "stationId": "FR-003",
-      "title": "Collection completed",
-      "details": "Metal · COL-0003",
-      "createdAt": "2026-11-23T22:47:46+02:00"
-    },
-    {
-      "id": "EVT-0016",
-      "type": "Collection",
-      "stationId": "FR-003",
-      "title": "Collection scheduled",
-      "details": "COL-0003 · 2026-11-24 · Afternoon",
-      "createdAt": "2026-11-23T22:47:15+02:00"
-    },
-    {
-      "id": "EVT-0015",
-      "type": "Collection",
-      "stationId": "FR-003",
-      "title": "Collection requested",
-      "details": "Metal · COL-0003",
-      "createdAt": "2026-11-23T22:47:15+02:00"
-    },
-    {
-      "id": "EVT-0014",
-      "type": "Collection",
-      "stationId": "FR-001",
-      "title": "Collection scheduled",
-      "details": "COL-0002 · 2026-11-23 · Afternoon",
-      "createdAt": "2026-11-23T22:47:00+02:00"
-    },
-    {
-      "id": "EVT-0013",
-      "type": "Collection",
-      "stationId": "FR-001",
-      "title": "Collection scheduled",
-      "details": "COL-0002 · 2026-11-23 · Morning",
-      "createdAt": "2026-11-23T22:46:32+02:00"
-    },
-    {
-      "id": "EVT-0012",
-      "type": "Collection",
-      "stationId": "FR-001",
-      "title": "Collection requested",
-      "details": "Plastic · COL-0002",
-      "createdAt": "2026-11-23T22:46:32+02:00"
-    },
-    {
-      "id": "EVT-0011",
-      "type": "System",
-      "stationId": "",
-      "title": "CSV report exported",
-      "details": "Scope: all · 7d",
-      "createdAt": "2026-11-23T21:50:55+02:00"
-    },
-    {
-      "id": "EVT-0010",
-      "type": "Station",
-      "stationId": "FR-003",
-      "title": "Station status changed",
-      "details": "Offline",
-      "createdAt": "2026-11-23T21:49:19+02:00"
-    },
-    {
-      "id": "EVT-0009",
-      "type": "Collection",
-      "stationId": "FR-002",
-      "title": "Collection completed",
-      "details": "Plastic · COL-0001",
-      "createdAt": "2026-11-23T21:27:30+02:00"
-    },
-    {
-      "id": "EVT-0008",
-      "type": "Collection",
-      "stationId": "FR-002",
-      "title": "Collection scheduled",
-      "details": "Plastic · COL-0001",
-      "createdAt": "2026-11-23T21:27:25+02:00"
-    },
-    {
-      "id": "EVT-0007",
-      "type": "Collection",
-      "stationId": "FR-002",
-      "title": "Collection requested",
-      "details": "Plastic · COL-0001",
-      "createdAt": "2026-11-23T21:27:23+02:00"
-    },
-    {
-      "id": "EVT-0006",
-      "type": "System",
-      "stationId": "",
-      "title": "Alert acknowledged",
-      "details": "fill:FR-002:plastic",
-      "createdAt": "2026-11-23T21:27:16+02:00"
-    },
-    {
-      "id": "EVT-0005",
-      "type": "Maintenance",
-      "stationId": "FR-002",
-      "title": "Ticket resolved",
-      "details": "TKT-0002 · fas",
-      "createdAt": "2026-11-23T21:27:00+02:00"
+      "title": "Plastic Bottle sorted",
+      "details": "Plastic · simulated recognition",
+      "createdAt": "2026-11-26T16:54:54+00:00"
     },
     {
       "id": "EVT-0004",
-      "type": "Maintenance",
+      "type": "Scan",
       "stationId": "FR-002",
-      "title": "Service ticket created",
-      "details": "TKT-0002 · fas",
-      "createdAt": "2026-11-23T21:26:41+02:00"
+      "title": "Paper / Cardboard sorted",
+      "details": "Paper · simulated recognition",
+      "createdAt": "2026-11-26T16:47:54+00:00"
     },
     {
-      "id": "EVT-0003",
-      "type": "Maintenance",
+      "id": "EVT-0001",
+      "type": "Collection",
       "stationId": "FR-002",
-      "title": "Ticket resolved",
-      "details": "TKT-0001 · problema senzor",
-      "createdAt": "2026-11-23T21:26:22+02:00"
+      "title": "Collection requested",
+      "details": "Paper · COL-0001",
+      "createdAt": "2026-11-26T16:25:54+00:00"
     },
     {
       "id": "EVT-0002",
       "type": "Maintenance",
-      "stationId": "FR-002",
+      "stationId": "FR-003",
       "title": "Ticket in progress",
-      "details": "TKT-0001 · problema senzor",
-      "createdAt": "2026-11-23T21:26:19+02:00"
+      "details": "Sorting mechanism inspection · TKT-0001",
+      "createdAt": "2026-11-26T16:07:54+00:00"
     },
     {
-      "id": "EVT-0001",
-      "type": "Maintenance",
-      "stationId": "FR-002",
-      "title": "Service ticket created",
-      "details": "TKT-0001 · problema senzor",
-      "createdAt": "2026-11-23T21:26:13+02:00"
+      "id": "EVT-0005",
+      "type": "Collection",
+      "stationId": "FR-001",
+      "title": "Collection completed",
+      "details": "Metal · COL-0002",
+      "createdAt": "2026-11-23T16:57:54+00:00"
     }
   ],
   "acknowledgedAlerts": [],
-  "nextCollectionNumber": 4,
+  "nextCollectionNumber": 3,
   "nextTicketNumber": 3,
-  "nextEventNumber": 19,
+  "nextEventNumber": 6,
   "settings": {
     "scanDuration": 2000,
     "confidenceThreshold": 95
   },
-  "lastScenario": "Legacy Data",
+  "lastScenario": "Starter Dataset",
   "scenarioAppliedAt": ""
 }

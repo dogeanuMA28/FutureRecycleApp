@@ -1,3 +1,4 @@
+"""Launch the FutureRecycle desktop demo on Linux, Windows or macOS."""
 import sys
 from pathlib import Path
 

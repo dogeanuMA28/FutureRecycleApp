@@ -200,7 +200,7 @@ Item {
                     delegate: Rectangle {
                         id: stationTile
                         required property var modelData
-                        Layout.fillWidth: true; Layout.preferredHeight: 157
+                        Layout.fillWidth: true; Layout.preferredHeight: 159
                         radius: 13
                         color: tileHover.hovered ? "#202E3A" : "#161F29"
                         border.color: tileHover.hovered ? "#4C9978" : "#293644"
@@ -217,23 +217,13 @@ Item {
                                 }
                             }
                             Text { text: stationTile.modelData.id + " · " + stationTile.modelData.location; color: "#8294AB"; font.pixelSize: 11; elide: Text.ElideRight; Layout.fillWidth: true }
-                            
                             Text {
-                                readonly property var health:
-                                    Health.evaluate(
-                                        stationTile.modelData,
-                                        root.tickets
-                                    )
-
-                                text: "HEALTH  " +
-                                    health.score + "/100  ·  " +
-                                    health.label
-
+                                readonly property var health: Health.evaluate(stationTile.modelData, root.stateData.tickets || [])
+                                text: "HEALTH " + health.score + "/100  ·  " + health.label
                                 color: health.color
                                 font.pixelSize: 11
                                 font.bold: true
                             }
-
                             Item { Layout.fillHeight: true }
                             Text { text: "CONTAINER LEVELS"; color: "#657B91"; font.pixelSize: 9; font.bold: true }
                             RowLayout {

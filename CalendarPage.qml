@@ -127,24 +127,17 @@ Item {
                         anchors.fill: parent; anchors.margins: 18; spacing: 14
                         RowLayout {
                             Layout.fillWidth: true
-
-                            Text {
-                                text: "Plan a Pickup"
-                                font.pixelSize: 19
-                                font.bold: true
-                                color: "#F8FAFC"
-                            }
-
-                            Item {
-                                Layout.fillWidth: true
-                            }
-
+                            Text { text: "Plan a Pickup"; font.pixelSize: 17; font.bold: true; color: "#F8FAFC" }
+                            Item { Layout.fillWidth: true }
                             ActionButton {
                                 text: "+ Request"
-                                implicitWidth: 104
-                                implicitHeight: 36
-
-                                onClicked: pickupPopup.open()
+                                tone: "neutral"
+                                implicitWidth: 94
+                                implicitHeight: 34
+                                onClicked: {
+                                    popupError.text = ""
+                                    newPickupPopup.open()
+                                }
                             }
                         }
                         Text { text: "Choose a calendar date, then assign an active request to that day."; color: "#93A9BB"; font.pixelSize: 12; wrapMode: Text.WordWrap; Layout.fillWidth: true }
@@ -223,155 +216,86 @@ Item {
         contentItem: Text { width: 330; text: "Record this scheduled pickup as completed? The selected container will be emptied."; wrapMode: Text.WordWrap; color: "#E8F1F8" }
         background: Rectangle { radius: 12; color: "#21313F"; border.color: "#42566A" }
     }
-
-    // CREATE PICKUP DIRECTLY FROM CALENDAR
+    // Create a collection and schedule it from the calendar in one workflow.
     Popup {
-        id: pickupPopup
-
+        id: newPickupPopup
         anchors.centerIn: parent
-        width: Math.min(460, root.width - 30)
-        height: 370
-
+        width: Math.min(470, root.width - 30)
+        height: 410
+        padding: 21
         modal: true
         focus: true
-
-        closePolicy: Popup.CloseOnEscape |
-                     Popup.CloseOnPressOutside
-
-        background: Rectangle {
-            radius: 15
-            color: "#1C2936"
-            border.color: "#405467"
-        }
-
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        background: Rectangle { radius: 15; color: "#1C2936"; border.color: "#405467" }
         contentItem: ColumnLayout {
-            spacing: 12
-
+            spacing: 10
+            Text { text: "Request & Schedule Pickup"; color: "#F8FAFC"; font.pixelSize: 19; font.bold: true }
             Text {
-                text: "Request a Pickup"
-                color: "#F8FAFC"
-                font.pixelSize: 20
-                font.bold: true
+                text: "Scheduled for " + root.selectedDay + " · " + timeCombo.currentText
+                color: "#94A3B8"; font.pixelSize: 12
             }
-
-            Text {
-                text: "Create and schedule a collection for " +
-                      root.selectedDay
-                color: "#94A3B8"
-                font.pixelSize: 12
-            }
-
-            Text {
-                text: "RECYCLING STATION"
-                color: "#94A3B8"
-                font.pixelSize: 10
-                font.bold: true
-            }
-
+            Text { text: "STATION"; color: "#94A3B8"; font.pixelSize: 10; font.bold: true }
             DarkCombo {
-                id: pickupStationCombo
+                id: newPickupStation
                 Layout.fillWidth: true
-
-                model: root.stations.map(function(s) {
-                    return s.id + " · " + s.name
-                })
+                model: root.stations.map(function(s) { return s.id + " · " + s.name })
             }
-
-            Text {
-                text: "WASTE MATERIAL"
-                color: "#94A3B8"
-                font.pixelSize: 10
-                font.bold: true
-            }
-
+            Text { text: "MATERIAL"; color: "#94A3B8"; font.pixelSize: 10; font.bold: true }
             DarkCombo {
-                id: pickupMaterialCombo
+                id: newPickupMaterial
                 Layout.fillWidth: true
-
-                model: [
-                    "plastic",
-                    "paper",
-                    "metal"
-                ]
+                model: ["plastic", "paper", "metal"]
             }
-
             TextField {
-                id: pickupNote
+                id: newPickupNotes
                 Layout.fillWidth: true
-                implicitHeight: 40
+                implicitHeight: 41
                 maximumLength: 200
-
-                placeholderText: "Optional instructions"
                 color: "#F8FAFC"
+                placeholderText: "Optional pickup instructions"
                 placeholderTextColor: "#94A3B8"
-
-                background: Rectangle {
-                    radius: 8
-                    color: "#263746"
-                    border.color: "#42576A"
-                }
+                background: Rectangle { color: "#263746"; border.color: "#42576A"; radius: 8 }
             }
-
-            Item {
-                Layout.fillHeight: true
+            Text {
+                id: popupError
+                Layout.fillWidth: true
+                text: ""
+                color: "#FCA5A5"
+                font.pixelSize: 11
+                wrapMode: Text.WordWrap
+                visible: text.length > 0
             }
-
+            Item { Layout.fillHeight: true }
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 10
-
                 ActionButton {
                     Layout.fillWidth: true
                     text: "Cancel"
                     tone: "neutral"
-
-                    onClicked: pickupPopup.close()
+                    onClicked: newPickupPopup.close()
                 }
-
                 ActionButton {
                     Layout.fillWidth: true
                     text: "Create & Schedule"
-
-                    enabled: pickupStationCombo.currentIndex >= 0 &&
-                             root.selectedDay >= root.iso(new Date())
-
+                    enabled: root.stations.length > 0 && root.selectedDay >= root.iso(new Date())
                     onClicked: {
-                        var index = pickupStationCombo.currentIndex
-
-                        if (index < 0 ||
-                            index >= root.stations.length) {
-                            return
-                        }
-
-                        var stationId = root.stations[index].id
-
-                        var material =
-                            pickupMaterialCombo.currentText
-
-                        // Step 1: Create collection request
-                        var jobId = backend.requestCollection(
-                            stationId,
-                            material,
-                            pickupNote.text
-                        )
-
-                        // Creation may fail if a container is
-                        // empty or already has an active pickup.
+                        var index = newPickupStation.currentIndex
+                        if (index < 0 || index >= root.stations.length) return
+                        var sid = root.stations[index].id
+                        var material = newPickupMaterial.currentText
+                        var jobId = backend.requestCollection(sid, material, newPickupNotes.text)
                         if (!jobId) {
+                            popupError.text = "Could not create request. Check that the bin is not empty and no active request exists for this material."
                             return
                         }
-
-                        // Step 2: Schedule the new request
-                        var success = backend.scheduleCollection(
-                            jobId,
-                            root.selectedDay,
-                            timeCombo.currentText
-                        )
-
-                        if (success) {
-                            pickupNote.text = ""
-                            pickupPopup.close()
+                        if (!backend.scheduleCollection(jobId, root.selectedDay, timeCombo.currentText)) {
+                            popupError.text = "Request " + jobId + " was created but could not be scheduled. Open Collection Requests to finish it."
+                            return
                         }
+                        popupError.text = ""
+                        newPickupNotes.text = ""
+                        newPickupPopup.close()
                     }
                 }
             }

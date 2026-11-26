@@ -153,39 +153,14 @@ Item {
                                 color: "#A3B5C7"; font.pixelSize: 12
                             }
                             Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: "#2B3A48" }
-                            Text { text: "CONTAINER CAPACITY"; color: "#93A6B9"; font.pixelSize: 11; font.bold: true; font.letterSpacing: .9 }
-                            
                             RowLayout {
                                 Layout.fillWidth: true
-
-                                readonly property var health:
-                                    Health.evaluate(
-                                        root.selectedStation,
-                                        root.stateData.tickets || []
-                                    )
-
-                                Text {
-                                    text: "HEALTH SCORE"
-                                    color: "#93A6B9"
-                                    font.pixelSize: 11
-                                    font.bold: true
-                                }
-
-                                Item {
-                                    Layout.fillWidth: true
-                                }
-
-                                Text {
-                                    text: parent.health.score +
-                                        "/100 · " +
-                                        parent.health.label
-
-                                    color: parent.health.color
-                                    font.pixelSize: 11
-                                    font.bold: true
-                                }
+                                readonly property var health: Health.evaluate(root.selectedStation, root.stateData.tickets || [])
+                                Text { text: "HEALTH SCORE"; color: "#93A6B9"; font.pixelSize: 11; font.bold: true }
+                                Item { Layout.fillWidth: true }
+                                Text { text: parent.health.score + "/100 · " + parent.health.label; color: parent.health.color; font.pixelSize: 11; font.bold: true }
                             }
-
+                            Text { text: "CONTAINER CAPACITY"; color: "#93A6B9"; font.pixelSize: 11; font.bold: true; font.letterSpacing: .9 }
                             Repeater {
                                 model: ["plastic", "paper", "metal"]
                                 delegate: MaterialBar {

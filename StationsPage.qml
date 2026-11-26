@@ -136,6 +136,11 @@ Item {
                     MetricCard { label: "METAL"; amount: root.selected ? root.selected.counts.metal.toLocaleString() : "0"; note: "Objects sorted"; accent: "#A78BFA" }
                 }
 
+                StationHealth {
+                    station: root.selected
+                    tickets: root.stateData.tickets || []
+                }
+
                 Rectangle {
                     Layout.fillWidth: true; Layout.preferredHeight: 340
                     color: "#161F29"; border.color: "#293644"; radius: 15
@@ -193,11 +198,6 @@ Item {
                             }
                         }
                     }
-                }
-
-                StationHealth {
-                    station: root.selected
-                    tickets: root.stateData.tickets || []
                 }
 
                 Rectangle {
