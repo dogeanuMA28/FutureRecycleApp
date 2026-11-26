@@ -7,6 +7,7 @@ __pycache__/
 
 # Local application state
 state.json
+accounts.sqlite3*
 data/local/
 
 # Generated files

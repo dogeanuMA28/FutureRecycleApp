@@ -14,6 +14,7 @@ The application allows customers to monitor their recycling stations, manage col
 
 | Feature | Description |
 |---|---|
+| **Local Accounts** | Sign in to the desktop dashboard and add accounts for other demo users. |
 | **Overview Dashboard** | Monitor the entire recycling network, key statistics, and recent activity. |
 | **Smart Stations** | Add and manage multiple recycling stations, each with independent containers. |
 | **Station Health Score** | Evaluate station health on a 0–100 scale using status, container capacity, and maintenance issues. |
@@ -29,7 +30,7 @@ The application allows customers to monitor their recycling stations, manage col
 | **AI Detection Demo** | Simulate waste classification from uploaded image filenames. |
 | **Settings** | Configure the simulation and choose presentation scenarios. |
 
-All application data is stored locally using JSON.
+Simulation data is stored locally in JSON. Local accounts are stored in SQLite.
 
 ---
 
@@ -233,6 +234,12 @@ If `py` is unavailable, try `python -m venv .venv` after confirming Python is in
 
 # How to Use the Application
 
+## Signing In
+
+On first launch, choose a username and password and select **Create account** to open the dashboard. On later launches, enter your credentials and select **Sign in**.
+
+Open the menu labeled with your username in the top-right corner to select **Add account** or **Sign out**. All local accounts have the same dashboard access and share the simulation data on that installation.
+
 ## Monitoring Stations
 
 Open **Smart Stations** to view all registered recycling stations.
@@ -329,7 +336,7 @@ Changing a scenario can modify saved simulation records.
 
 # Data Storage
 
-FutureRecycle automatically saves its data to a local JSON file.
+FutureRecycle automatically saves simulation data to a local JSON file. The adjacent `accounts.sqlite3` file stores local usernames and salted PBKDF2 password hashes.
 
 The application prints the exact storage location in the terminal when it starts.
 
@@ -437,6 +444,9 @@ On Windows, use `.\.venv\Scripts\python.exe` instead of `python` when running wi
 FutureRecycle/
 ├── main.py
 ├── main.qml
+├── Login.qml
+├── AccountForm.qml
+├── auth.py
 ├── backend.py
 ├── RomaniaMap.qml
 ├── Health.js

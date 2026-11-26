@@ -148,6 +148,17 @@ ApplicationWindow {
                 }
                 Rectangle { width: 1; height: 25; color: "#273543" }
                 Text { text: appWindow.selectedStationId; color: "#A6B6C9"; font.pixelSize: 12; font.bold: true }
+                ActionButton {
+                    text: session.username
+                    tone: "neutral"
+                    onClicked: accountMenu.open()
+                    Menu {
+                        id: accountMenu
+                        y: parent.height
+                        MenuItem { text: "Add account"; onTriggered: accountDialog.open() }
+                        MenuItem { text: "Sign out"; onTriggered: session.signOut() }
+                    }
+                }
             }
             StackLayout {
                 Layout.fillWidth: true
@@ -179,6 +190,33 @@ ApplicationWindow {
                 InsightsWorkspace { id: insightsWorkspace; stateData: appWindow.stateData }
                 ScannerPage { stateData: appWindow.stateData }
                 SettingsPage { stateData: appWindow.stateData }
+            }
+        }
+    }
+    Dialog {
+        id: accountDialog
+        anchors.centerIn: parent
+        width: 390
+        title: "Add account"
+        modal: true
+        standardButtons: Dialog.Cancel
+        background: Rectangle { color: "#111820"; radius: 12; border.color: "#263340" }
+        header: Label {
+            text: accountDialog.title
+            color: "#F8FAFC"
+            font.bold: true
+            padding: 14
+        }
+        onOpened: accountForm.focusUsername()
+        onClosed: accountForm.reset()
+        contentItem: AccountForm {
+            id: accountForm
+            creating: true
+            onAccepted: {
+                accountDialog.accept()
+                toastText.text = "Account created"
+                toast.opacity = 1
+                toastTimer.restart()
             }
         }
     }
